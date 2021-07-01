@@ -1,0 +1,17 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @stores.each.with_index do |store,i| %>
+  <div class="movie <%= i != 0 && (i+1)%6 ==0 ? "last" : ""%>">
+    <div class="movie-image"> <a href="/stores/<%=store.id%>"><span class="play"><span class="name"><%= store.name %></span></span> <%= image_tag store.product_image%></a> </div>
+    <div class="rating">
+      <p>RATING</p>
+      <div class="stars">
+        <div class="stars-in"> </div>
+      </div>
+      <span class="comments"><%= store.rating %></span> </div>
+  </div>
+<% end %>
+
+
+

@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+
+<% @movies.each.with_index do |movie,i| %>
+  <div class="movie <%= i != 0 && (i+1)%6 ==0 ? "last" : ""%>">
+    <div class="movie-image"> <a href="/stores/<%=movie.id%>"><span class="play"><span class="name"><%= movie.name %></span></span> <%= image_tag movie.product_image%></a> </div>
+    <div class="rating">
+      <p>RATING</p>
+      <div class="stars">
+        <div class="stars-in"> </div>
+      </div>
+      <span class="comments"><%= movie.rating %></span> </div>
+      <br/>
+        <%= number_to_currency(movie.price)  %>
+        <%= button_to 'Add to Cart', line_items_path(:store_id => movie.id), :remote => true, style:"cursor:pointer;" %> 
+
+  </div>
+<% end %>

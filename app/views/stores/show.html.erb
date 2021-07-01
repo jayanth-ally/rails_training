@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<%= image_tag @store.product_image%>
+<p>
+  <strong>Name:</strong>
+  <%= @store.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @store.description %>
+</p>
+
+<p>
+  <strong>Year:</strong>
+  <%= @store.year %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @store.rating %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @store.price %>
+</p>
+
+<% if session[:admin] %>
+<%= link_to 'Edit', edit_store_path(@store), class: "yellow" %> | 
+<%= link_to 'Delete', store_path(@store), method: :delete, data: {confirm: "Do you want to delete this movie?"}, class: "delete-btn red" %> | 
+<% end %>
+<%= link_to 'Back', stores_path %>
