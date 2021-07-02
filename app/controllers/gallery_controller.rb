@@ -51,7 +51,7 @@ class GalleryController < ApplicationController
   end
 
   def search
-    @movies = Store.find_by_sql("select * from stores WHERE name like '%#{params[:query]}%' or year like '%#{params[:query]}%'")
+    @movies = Store.find_by_sql("select * from stores WHERE name like '%#{params[:query]}%' or CAST(year AS TEXT) like '%#{params[:query]}%'")
     render :action=>"index"
   end
 
