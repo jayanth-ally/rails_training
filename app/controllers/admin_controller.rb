@@ -4,7 +4,7 @@ class AdminController < ApplicationController
       if params[:user_name] == "admin" && params[:password]=="admin"
         session[:admin] = "admin"
         flash[:notice] = "Welcome Admin"
-        redirect_to :controller=>:stores
+        redirect_to :controller=>:gallery
       else
         flash[:notice] = "Invalid username / password"
         redirect_to :action=>:login
